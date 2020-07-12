@@ -1,7 +1,7 @@
 import sms
 import db_interface
 
-#import trungs function
+import trung_function
 
 
 #Code for scheudling text messages
@@ -10,10 +10,12 @@ import db_interface
 
 def helper(phone, state, county):
     #trungs function
-    cases = 10
-    deaths = 10
-    to_send = 10
-    sms.send_message(phone, "hiii")
+    data = trung_put_your_function_here(state, county):
+
+    cases = data[0]
+    deaths = data[1]
+    to_send = "Todays confirmed cases: " + str(cases) + " conirmed deaths: " + str(deaths)
+    sms.send_message(phone, to_send)
 
 
 db_interface.call_on_all_phone_num(helper)
