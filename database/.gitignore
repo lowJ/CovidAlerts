@@ -1,3 +1,4 @@
 users.db
 db_test.py
 __pycache__/
+.DS_Store
