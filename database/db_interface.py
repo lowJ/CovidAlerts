@@ -10,7 +10,6 @@ def add_user(phone_num, state, county):
     conn.commit()
     conn.close()
 
-
 def del_user(phone_num):
     #add error handling
     #if user doesnt exist, do nothing
@@ -19,20 +18,30 @@ def del_user(phone_num):
     c.execute("DELETE FROM subscribers WHERE phone = " + "'" + str(phone_num) + "'")
     conn.commit()
     conn.close()
-    
-    pass
+
+#clears all rows from subscribers
+def clear_subscribers():
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    c.execute("DELETE FROM subscribers")
+    conn.commit()
+    conn.close()
 
 def get_user(phone_num):
     return 0
 
-#calls func, passing each phone_num
+#Calls func on each row
+#passes args as -> func(phone, state, county)
 def call_on_all_phone_num(func):
-    pass
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    for row in c.execute('SELECT * FROM subscribers'):
+        func(row[0], row[1], row[2])
+    conn.close()
 
 def print_subscribers():
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     for row in c.execute('SELECT * FROM subscribers'):
         print(row)
-
     conn.close()

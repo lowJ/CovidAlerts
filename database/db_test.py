@@ -8,8 +8,10 @@ db_interface.add_user("000000", "I should", "be here")
 db_interface.add_user("000100", "I should", "be here")
 db_interface.add_user("200000", "I should", "be here")
 db_interface.add_user("000000", "I should", "be here")
+print("Database: \n")
+db_interface.print_subscribers()
 
-db_interface.del_user("000000")
+db_interface.clear_subscribers()
 
 print("Database: \n")
 db_interface.print_subscribers()
