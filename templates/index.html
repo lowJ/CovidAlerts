@@ -1,0 +1,20 @@
+<html>
+    <form action="/my_serv.php">
+        <label for="st">Choose a State:</label>
+        <select name="state" id="state">
+            {% for x in states %}
+            <option value={{x}}>{{x}}</option>
+            {% endfor %}
+        </select>
+        <label for="coun">Choose a County:</label>
+        <select name="county" id="county">
+            {% for x in counties %}
+            <option value={{x}}>{{x}}</option>
+            {% endfor %}
+          </select>
+        <br><br>
+        <label for="phone">Phone_number: +1</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+</html>
