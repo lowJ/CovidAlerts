@@ -1,4 +1,5 @@
 __pycache__/
+.idea/
 .DS_Store
 db_test.py
 sms_test.py

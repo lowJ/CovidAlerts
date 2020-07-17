@@ -18,3 +18,12 @@ def getweek(state, county):
     week_ago_cases, week_ago_deaths = r['cases'], r['deaths']
     today = getday(state, county)
     return today[0] - week_ago_cases, today[1] - week_ago_deaths
+
+def liststates():
+    return list(today['state'].unique())
+
+def listcounties():
+    return list(today['county'].unique())
+
+def counties_of_state(state):
+    return list(today.loc[today['state'] == state]['county'])
