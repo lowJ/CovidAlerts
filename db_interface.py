@@ -2,8 +2,10 @@ import sqlite3
 conn = sqlite3.connect('users.db')
 
 def add_user(phone_num, state, county):
-    #add error handling
-    #check for duplicates  
+    #add error catching
+    #if phone_num invalid... do...
+    #if state/county invalid ... do...
+    #if number exists already...
     conn = sqlite3.connect('users.db')          
     c = conn.cursor()        
     c.execute("INSERT INTO subscribers VALUES ('" + str(phone_num) + "','" + str(state) + "','" + str(county) + "')" )
@@ -11,8 +13,8 @@ def add_user(phone_num, state, county):
     conn.close()
 
 def del_user(phone_num):
-    #add error handling
-    #if user doesnt exist, do nothing
+    #add error catching
+    #if user doesnt exist, do nothing.
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute("DELETE FROM subscribers WHERE phone = " + "'" + str(phone_num) + "'")
