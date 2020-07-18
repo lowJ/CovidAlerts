@@ -1,0 +1,27 @@
+<html>
+  <script type=text/javascript src="{{
+    url_for('static', filename='jquery.js') }}"></script>
+    
+    <form autocomplete="off" action="/my_serv.php">
+        <label for="st">Choose a State:</label>
+        <input type="text" id="txtAutoComplete" list="statesList" name="state"/><!--your input textbox-->
+          <datalist id="statesList">
+            {% for x in states %}
+            <option value={{x}}></option>
+            {% endfor %}
+          </datalist>
+        <label for="coun">Choose a County:</label>
+        <input type="text" id="txtAutoComplete" list="countiesList" name = "county"/><!--your input textbox-->
+          <datalist id="countiesList">
+            {% for x in counties %}
+            <option value={{x}}></option>
+            {% endfor %}
+          </datalist>
+        <br><br>
+        <label for="phone">Phone_number: +1</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <input type="submit" value="Submit">
+        
+      </form>
+      
+</html>
