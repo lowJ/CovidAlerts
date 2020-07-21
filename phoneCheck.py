@@ -11,12 +11,17 @@ def checkNumber(number: str) -> bool:
 
 """Makes all the inputted numbers uniform"""
 def formatNumber(number: str) -> str:
-    integers = [str(i) for i in range(10)]
+    #pattis taught me well
+    return "".join([i for i in number if i in [str(i) for i in range(10)]])
+
+    """
     final = ""
     for i in number:
-        if i in integers:
+        if i in [str(i) for i in range(10)]:
             final += i
     return final
+    """
+
 
 
 if __name__ == "__main__":
