@@ -50,5 +50,8 @@ def print_subscribers():
     
     
 #makes sure theres no duplicate number/county pairs
+def checkDuplicateNumber():
+    pass
+
 def checkDuplicate():
     pass
