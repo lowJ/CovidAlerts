@@ -59,6 +59,7 @@ def checkDuplicateNumber():
         if row not in check:
             check.append(row)
     
+    #Gotta figure out how to find the size of the SQL table cause len doesnt work on it
     if len(check) == len(c.execute('SELECT * FROM subscribers')):
         conn.close()
         return True
