@@ -51,7 +51,21 @@ def print_subscribers():
     
 #makes sure theres no duplicate number/county pairs
 def checkDuplicateNumber():
-    pass
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    
+    check = []
+    for row in c.execute('SELECT * FROM subscribers'):
+        if row not in check:
+            check.append(row)
+    
+    if len(check) == len(c.execute('SELECT * FROM subscribers')):
+        conn.close()
+        return True
+    else:
+        conn.close()
+        return False
+                        
 
 def checkDuplicate():
     pass
