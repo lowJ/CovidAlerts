@@ -16,3 +16,5 @@ def helper(phone, state, county):
 
 
 db_interface.call_on_all_phone_num(helper)
+
+
