@@ -47,3 +47,8 @@ def print_subscribers():
     for row in c.execute('SELECT * FROM subscribers'):
         print(row)
     conn.close()
+    
+    
+#makes sure theres no duplicate number/county pairs
+def checkDuplicate():
+    pass
