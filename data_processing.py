@@ -6,7 +6,6 @@ ago = pd.read_csv("ago-us-counties.csv")
 today = pd.read_csv("live-us-counties.csv")
 
 def getday(state, county):
-    print(state, county)
     r = today.loc[(today['state'] == state) & (today['county'] == county)]
     if len(r) == 0:
         return None
@@ -29,7 +28,12 @@ def listcounties():
         state_abr.append(us_state_abbrev[state])
     return list(today['county'] + " (" + state_abr + ")")
 
+def list_all_counties():
+    return list(today['county'])
+
+def get_state(county):
+    r = today.loc[today['county'] == county]
+    return list(r['state'])
+
 def counties_of_state(state):
     return list(today.loc[today['state'] == state]['county'])
-
-print(listcounties())
