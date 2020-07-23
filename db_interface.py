@@ -1,6 +1,7 @@
 import sqlite3
 conn = sqlite3.connect('users.db')
 
+#Adds a user
 def add_user(phone_num, state, county):
     #add error catching
     #if phone_num invalid... do...
