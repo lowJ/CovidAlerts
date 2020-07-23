@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime, timedelta
+from state_abbreviations import us_state_abbrev
 
 ago = pd.read_csv("ago-us-counties.csv")
 today = pd.read_csv("live-us-counties.csv")
@@ -23,7 +24,12 @@ def liststates():
     return list(today['state'].unique())
 
 def listcounties():
-    return list(today['county'].unique())
+    state_abr = []
+    for state in today['state']:
+        state_abr.append(us_state_abbrev[state])
+    return list(today['county'] + " (" + state_abr + ")")
 
 def counties_of_state(state):
     return list(today.loc[today['state'] == state]['county'])
+
+print(listcounties())
