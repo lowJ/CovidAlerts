@@ -53,20 +53,31 @@ def print_subscribers():
 def checkDuplicateNumber():
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    
+
     check = []
-    for row in c.execute('SELECT * FROM subscribers'):
+    tableSize = 0
+    for row in c.execute('SELECT phone FROM subscribers'):
+        tableSize += 1
         if row not in check:
             check.append(row)
-    
-    #Gotta figure out how to find the size of the SQL table cause len doesnt work on it
-    if len(check) == len(c.execute('SELECT * FROM subscribers')):
+
+    if len(check) == tableSize:
         conn.close()
         return True
     else:
         conn.close()
         return False
-                        
 
-def checkDuplicate():
-    pass
+
+
+#Checks to see if there is a duplicate phone/county pair
+#returns true if there is and false if there isn't
+def checkDuplicate(phone, county):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    check = c.execute(f'SELECT * from subscribers where phone = "{phone}" and county = "{county}"')
+    if len(check.fetchall()) > 0:
+        return True
+    conn.close()
+    return False
+
