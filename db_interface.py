@@ -1,6 +1,7 @@
 import sqlite3
 conn = sqlite3.connect('users.db')
 
+#Adds a user
 def add_user(phone_num, state, county):
     #add error catching
     #if phone_num invalid... do...
@@ -11,8 +12,9 @@ def add_user(phone_num, state, county):
     c.execute("INSERT INTO subscribers VALUES ('" + str(phone_num) + "','" + str(state) + "','" + str(county) + "')" )
     conn.commit()
     conn.close()
-
-def del_user(phone_num):
+ 
+#Deletes all of the user's sign ups
+def clear_user(phone_num):
     #add error catching
     #if user doesnt exist, do nothing.
     conn = sqlite3.connect('users.db')
@@ -20,6 +22,12 @@ def del_user(phone_num):
     c.execute("DELETE FROM subscribers WHERE phone = " + "'" + str(phone_num) + "'")
     conn.commit()
     conn.close()
+    
+
+#Deletes a user county pair
+def del_user(phone, state, county):
+    pass
+
 
 #clears all rows from subscribers
 def clear_subscribers():
@@ -29,8 +37,6 @@ def clear_subscribers():
     conn.commit()
     conn.close()
 
-def get_user(phone_num):
-    return 0
 
 #Calls func on each row
 #passes args as -> func(phone, state, county)
