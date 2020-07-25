@@ -1,4 +1,4 @@
-from twilio_lib.twilio.rest import Client
+from twilio.rest import Client
 import twillio_creds
 
 account_sid = twillio_creds.twillio_acc_sid
