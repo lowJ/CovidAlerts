@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="{% static 'signup/assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'signup/assets/fonts/fontawesome-all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'signup/assets/fonts/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'signup/assets/fonts/typicons.min.css'%}">
+    <link rel="stylesheet" href="{% static 'signup/assets/fonts/fontawesome5-overrides.min.css'%}">
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'signup/assets/css/Login-Form-Clean.css'%}">
+    
+</head>
+
+<body>
+    <div class="login-clean" style="background-color: rgb(0,123,255);">
+        <form method="post">
+
+          <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><i class="fas fa-heartbeat" data-bs-hover-animate="pulse" style="border-color: rgb(62,140,228);color: rgb(0,123,255);"></i></div>
+            <div class="form-group"><input class="form-control" type="tel" name="phone_num" placeholder="Phone" pattern="[0-9]{10,11}" required></div>
+            <div class="form-group">
+              <input class="form-control" list="county" type="text" name="county" placeholder="County"  required>
+            <datalist id="county">
+              {% for x in counties %}
+              <option value='{{x}}'></option>
+              {% endfor %}
+            </datalist>
+          </div>
+
+            <!--<div class="g-recaptcha" data-sitekey="6LeNfbMZAAAAACz8w-KhJ7zXDy_mU63RdQ5a3rYe"></div>-->
+
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(0,123,255);">Signup</button></div>
+       
+            
+
+          </form>
+    </div>
+    <section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 offset-lg-0">
+                    <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                        <div class="d-flex features-icons-icon"><i class="typcn typcn-message m-auto text-primary" data-bs-hover-animate="tada"></i></div>
+                        <h3>About</h3>
+                        <p class="lead mb-0">CovidAlerts will text you COVID-19 updates in your county everyday.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="showcase"></section>
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 my-auto h-100 text-center text-lg-left">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Contact</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">© Brand 2020. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 my-auto h-100 text-center text-lg-right">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'signup/assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'signup/assets/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'signup/assets/js/bs-init.js'%}"></script>
+</body>
+
+</html>
