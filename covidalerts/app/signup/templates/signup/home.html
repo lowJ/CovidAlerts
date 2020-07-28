@@ -25,7 +25,7 @@
 
 <body>
     <div class="login-clean" style="background-color: rgb(0,123,255);">
-        <form method="post">
+        <form method="post">{% csrf_token %}
 
           <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 
@@ -33,12 +33,13 @@
             <div class="illustration"><i class="fas fa-heartbeat" data-bs-hover-animate="pulse" style="border-color: rgb(62,140,228);color: rgb(0,123,255);"></i></div>
             <div class="form-group"><input class="form-control" type="tel" name="phone_num" placeholder="Phone" pattern="[0-9]{10,11}" required></div>
             <div class="form-group">
-              <input class="form-control" list="county" type="text" name="county" placeholder="County"  required>
+                {{form}}
+              <!-- <input class="form-control" list="county" type="text" name="county" placeholder="County"  required>
             <datalist id="county">
               {% for x in counties %}
               <option value='{{x}}'></option>
               {% endfor %}
-            </datalist>
+            </datalist> -->
           </div>
 
             <!--<div class="g-recaptcha" data-sitekey="6LeNfbMZAAAAACz8w-KhJ7zXDy_mU63RdQ5a3rYe"></div>-->
