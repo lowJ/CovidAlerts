@@ -4,6 +4,10 @@ from django.http import HttpResponse
 from . import forms
 from signup.forms import SignupForm
 from signup.data_processing import listcounties
+from phoneCheck import checkNumber, formatNumber
+from countyCheck import checkCounty
+
+
 
 # Create your views here.
 def home(request):
@@ -22,4 +26,18 @@ def home(request):
         'form' : form
     }
     return render(request, 'signup/home.html', context)
-
+    
+    #Still figuring out where this should go
+    """
+    #Check if phone number is valid
+    if checkNumber(post_data['phone_num']):
+        post_data['phone_num'] = formatNumber(post_data['phone_num'])
+       
+    #check if county is valid
+        county_get = checkCounty(county_get)
+        if type(county_get) is str:
+            county_is_valid = False
+        else:
+            county_is_valid = True
+            county, state = county_get
+    """
