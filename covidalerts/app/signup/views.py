@@ -3,20 +3,22 @@ from django.http import HttpResponse
 #from .forms import SignupForm
 from . import forms
 from signup.forms import SignupForm
+from signup.data_processing import listcounties
 
 # Create your views here.
 def home(request):
     if(request.method == "POST"):
-        form = SignupForm(request.POST)
-        msg = request.POST
+        post_data = request.POST
+        msg = post_data['county'] + post_data['phone_num']
         context = {
             'msg' : msg
         }
         return render(request, 'signup/success.html', context)
-    test_list= ['1', '2', '3', '4', '5', '6', '7']
-    form = forms.SignupForm(data_list=test_list)
+    
+    counties_list = listcounties()
+    form = forms.SignupForm(data_list=counties_list)
     context = {
-        'counties' : test_list,
+        'counties' : counties_list,
         'form' : form
     }
     return render(request, 'signup/home.html', context)
