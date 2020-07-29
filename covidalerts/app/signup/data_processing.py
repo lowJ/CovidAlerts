@@ -1,9 +1,9 @@
 import pandas as pd
 from datetime import datetime, timedelta
-from state_abbreviations import us_state_abbrev
+from signup.state_abbreviations import us_state_abbrev
 
-ago = pd.read_csv("ago-us-counties.csv")
-today = pd.read_csv("live-us-counties.csv")
+ago = pd.read_csv("signup/ago-us-counties.csv")
+today = pd.read_csv("signup/live-us-counties.csv")
 
 def getday(state, county):
     r = today.loc[(today['state'] == state) & (today['county'] == county)]

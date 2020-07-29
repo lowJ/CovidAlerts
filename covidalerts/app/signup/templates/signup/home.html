@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -5,20 +6,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
-    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'signup/assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'signup/assets/fonts/fontawesome-all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'signup/assets/fonts/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'signup/assets/fonts/typicons.min.css'%}">
+    <link rel="stylesheet" href="{% static 'signup/assets/fonts/fontawesome5-overrides.min.css'%}">
+
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
-    <link rel="stylesheet" href="static/assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="static/assets/fonts/typicons.min.css">
-    <link rel="stylesheet" href="static/assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="static/assets/css/Login-Form-Clean.css">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'signup/assets/css/Login-Form-Clean.css'%}">
     
 </head>
 
 <body>
     <div class="login-clean" style="background-color: rgb(0,123,255);">
-        <form method="post">
+        <form method="post">{% csrf_token %}
 
           <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 
@@ -26,12 +33,13 @@
             <div class="illustration"><i class="fas fa-heartbeat" data-bs-hover-animate="pulse" style="border-color: rgb(62,140,228);color: rgb(0,123,255);"></i></div>
             <div class="form-group"><input class="form-control" type="tel" name="phone_num" placeholder="Phone" pattern="[0-9]{10,11}" required></div>
             <div class="form-group">
-              <input class="form-control" list="county" type="text" name="county" placeholder="County"  required>
+                {{form}}
+              <!-- <input class="form-control" list="county" type="text" name="county" placeholder="County"  required>
             <datalist id="county">
               {% for x in counties %}
               <option value='{{x}}'></option>
               {% endfor %}
-            </datalist>
+            </datalist> -->
           </div>
 
             <!--<div class="g-recaptcha" data-sitekey="6LeNfbMZAAAAACz8w-KhJ7zXDy_mU63RdQ5a3rYe"></div>-->
@@ -81,9 +89,10 @@
             </div>
         </div>
     </footer>
-    <script src="static/assets/js/jquery.min.js"></script>
-    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="static/assets/js/bs-init.js"></script>
+
+    <script src="{% static 'signup/assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'signup/assets/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'signup/assets/js/bs-init.js'%}"></script>
 </body>
 
 </html>
