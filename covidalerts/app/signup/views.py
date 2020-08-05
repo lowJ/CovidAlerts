@@ -6,6 +6,7 @@ from signup.forms import SignupForm
 from signup.data_processing import listcounties
 from signup.phoneCheck import checkNumber, formatNumber
 from signup.countyCheck import checkCounty
+from .db_interface import add_user, checkDuplicate, print_subscribers
 
 
 
@@ -34,16 +35,16 @@ def home(request):
             msg = county_get
         elif not phone_is_valid:
             msg = 'Invalid phone number.'
-        elif 0: # need to check if phone num and county already exists in database
-            msg = f'{phone_num} is already registered for {county_get} county.'
+        elif checkDuplicate(phone_num, county, state): # need to check if phone num and county already exists in database
+            msg = f'{phone_num} is already registered for {county} county.'
         else:
+            add_user(phone_num, state, county)
             msg = f'Successfully signed up {phone_num} to recieve alerts for {county}, {state}.'
 
-        # msg = post_data['county'] + post_data['phone_num']
         context = {
             'msg' : msg
         }
-
+        print_subscribers()
         return render(request, 'signup/success.html', context)
     
     counties_list = listcounties()
@@ -53,18 +54,3 @@ def home(request):
         'form' : form
     }
     return render(request, 'signup/home.html', context)
-    
-    #Still figuring out where this should go
-    """
-    #Check if phone number is valid
-    if checkNumber(post_data['phone_num']):
-        post_data['phone_num'] = formatNumber(post_data['phone_num'])
-       
-    #check if county is valid
-        county_get = checkCounty(county_get)
-        if type(county_get) is str:
-            county_is_valid = False
-        else:
-            county_is_valid = True
-            county, state = county_get
-    """

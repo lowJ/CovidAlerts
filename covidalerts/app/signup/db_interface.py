@@ -78,10 +78,10 @@ def checkDuplicateNumber():
 
 #Checks to see if there is a duplicate phone/county pair
 #returns true if there is and false if there isn't
-def checkDuplicate(phone, county):
+def checkDuplicate(phone, county, state):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    check = c.execute(f'SELECT * from subscribers where phone = "{phone}" and county = "{county}"')
+    check = c.execute(f'SELECT * from subscribers where phone = "{phone}" and county = "{county}" and state = "{state}"')
     if len(check.fetchall()) > 0:
         return True
     conn.close()
