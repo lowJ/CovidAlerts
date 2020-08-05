@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from . import forms
 from signup.forms import SignupForm
 from signup.data_processing import listcounties
-from phoneCheck import checkNumber, formatNumber
-from countyCheck import checkCounty
+from signup.phoneCheck import checkNumber, formatNumber
+from signup.countyCheck import checkCounty
 
 
 
