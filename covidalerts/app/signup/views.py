@@ -6,7 +6,7 @@ from signup.forms import SignupForm
 from signup.data_processing import listcounties
 from signup.phoneCheck import checkNumber, formatNumber
 from signup.countyCheck import checkCounty
-from .db_interface import add_user, checkDuplicate, print_subscribers
+from .db_interface import add_user, checkDuplicate
 
 
 
@@ -44,7 +44,6 @@ def home(request):
         context = {
             'msg' : msg
         }
-        print_subscribers()
         return render(request, 'signup/success.html', context)
     
     counties_list = listcounties()
