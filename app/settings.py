@@ -25,7 +25,7 @@ SECRET_KEY = '5c#8eoz)-e@*lq$7f9w#h7vy(x!an&s08o(q&++d#qx8j^w8s+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['covidalerts2020.herokuapp.com']
 
 
 # Application definition
