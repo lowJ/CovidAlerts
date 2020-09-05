@@ -48,7 +48,7 @@ def update():
 
 if __name__ == "__main__":
     mins = 0
-    update()
+    print(update())
 
     #Continues to run the script until it is able to update
     # while update() != True:
