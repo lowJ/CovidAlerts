@@ -50,7 +50,7 @@ if __name__ == "__main__":
     mins = 0
     print(update())
 
-    Continues to run the script until it is able to update
+    #Continues to run the script until it is able to update
     while update() != True:
          #Keeps track of each min that passes
          time.sleep(60)
