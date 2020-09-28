@@ -50,12 +50,12 @@ if __name__ == "__main__":
     mins = 0
     print(update())
 
-    #Continues to run the script until it is able to update
-    # while update() != True:
-    #     #Keeps track of each min that passes
-    #     time.sleep(60)
-    #     mins += 1
-    #
-    #     #Runs the script again every 5 mins
-    #     if mins % 5 == 0:
-    #         update()
+    Continues to run the script until it is able to update
+    while update() != True:
+         #Keeps track of each min that passes
+         time.sleep(60)
+         mins += 1
+    
+         #Runs the script again every 5 mins
+         if mins % 5 == 0:
+             update()
